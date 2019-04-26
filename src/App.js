@@ -11,10 +11,10 @@ class App extends Component {
     super(props);
     this.state = {
       presentDay: [],
-      futureDays: []
+      data: []
     };
   }
-
+z
  componentDidMount(){
     Promise.all([
       fetch('https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.964850/lat/57.709330/data.json'),
@@ -23,7 +23,7 @@ class App extends Component {
     .then(([res1, res2]) => Promise.all([res1.json(), res2.json()]))
     .then(([data1, data2]) => this.setState({
       presentDay: data1['timeSeries'][0]['parameters'], 
-      futureDays: data2['timeSeries']
+      data: data2['timeSeries']
     }));
   }
 
@@ -32,11 +32,11 @@ class App extends Component {
       <div className="App">
         <div className="container">
           <div>
-            {console.log(this.state.presentDay)}
-            <TimeSeries presentDay={ this.state.presentDay } />
+            {console.log(this.state.data)}
+            <TimeSeries data={this.state.data} />
           </div>
           <div className="daysFuture">
-            <DaySeries futureDays={ this.state.futureDays } />
+            <DaySeries  data={this.state.data} />
           </div>
         </div>
       </div>
