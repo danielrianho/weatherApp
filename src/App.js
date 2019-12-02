@@ -39,10 +39,6 @@ class App extends Component {
 
   render() {
 
-    const hej = [this.state.place];
-
-    console.log(hej)
-
     return (
       <div className="App">
        <GoogleComponent
