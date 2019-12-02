@@ -1,12 +1,46 @@
+/* import */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap');
+
+
+/* general */
 
 body {
-  font-family: 'Noto Sans', sans-serif; 
+  font-family: 'Roboto', sans-serif;
+  /*background-color: #66a5ad;*/
+  /*background-color: #5ea8a7;*/
+  background-color: #6eb5c0;
 }
 
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+h1{
+  font-size: 50px;
+}
+h2{
+  font-size: 30px;
+}
+h1{}
+h1{}
+h1{}
+h1{}
+
+.ReactModal__Overlay.ReactModal__Overlay--after-open{
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.ReactModal__Content{
+  bottom: unset !important;
+  top: 25% !important;
 }
 /*
 .App-logo {
@@ -39,26 +73,87 @@ body {
 }
 */
 
+
+
 .container{
   color: #fff;
-  padding: 20px 50px;
+  padding: 90px 30px;
   margin: 0 auto;
-  width: 50%;
+  position: relative;
 /*  background: rgb(9,96,121);
   background: linear-gradient(90deg, rgba(9,96,121,1) 0%, rgba(67,170,176,1) 100%);*/
-  color: #000;
 }
 
-.daysFuture .grid{
-  width: 100%;
-  display: grid;
-  grid-column-gap: 10px;
-  grid-template-columns: 1fr 1fr 1fr;
+.dayNow{
+  margin-bottom: 100px;
 }
 
-.daysFuture .grid div{
-  text-align: center;
-  display: block;
-  border: 1px solid #faaf4d;
-  padding: 50px;
+.dayNow ul{
+  list-style: none;
+  margin-bottom: 30px;
+}
+  
+/*  .dayNow ul li.todayCity{
+    font-size: 30px;
+    margin-bottom: 30px;
+  }*/
+
+  .dayNow ul li.temp{
+    font-size: 90px;
+    font-weight: 100;
+  } 
+
+  .dayNow ul li.todayIcon{
+    padding: 15px 0px;
+  } 
+    .dayNow ul li.todayIcon .divTodayIcon{
+      width: 250px;
+      margin: 0 auto;
+    }  
+    .dayNow ul li.todayIcon i{
+       font-size: 62px;
+    }     
+
+  .daysFuture .grid div ul{
+    list-style: none;
+  }
+
+/* Media queries */
+  
+  .daysFuture .grid{
+    width: 100%;
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+
+  .daysFuture .grid div{
+    text-align: center;
+    display: block;
+    /*border: 1px solid #faaf4d;*/
+    padding: 10px;
+    background-color: #006c84;
+  }
+
+@media( min-width: 768px){
+  body{
+    background-color: #FFF;
+  }
+  .container{
+    width: 50%;
+    background-color: #6eb5c0;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 680px;
+  }
+}
+
+@media( min-width: 1200px){
+  .container{
+    width: 40%;
+  }
 }

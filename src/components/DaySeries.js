@@ -3,9 +3,32 @@ import moment from 'moment-timezone';
 import DayOne from './DayOne';
 import DayTwo from './DayTwo';
 import DayThree from './DayThree';
+import Modal from 'react-modal';
 
 
 export class DaySeries extends Component {
+
+   state = {
+    modalIsOpen: false,
+    secondModalIsOpen: false
+  };
+
+  openModal = () => {
+    this.setState({ modalIsOpen: true });
+  };
+
+  closeModal = () => {
+    this.setState({ modalIsOpen: false });
+  };
+
+  openSecondModal = () => {
+    this.setState({ secondModalIsOpen: true });
+  };
+
+  closeSecondModal = () => {
+    this.setState({ secondModalIsOpen: false });
+  };
+
   render() {
 
     // const firstDay = this.props.firstDay.map((data) => data.values[0]);
@@ -85,7 +108,31 @@ export class DaySeries extends Component {
         );
       }
 
-    })
+    });
+
+    const date = new Date();
+
+    const day = date.getDay();
+   
+    const newDay = () => {
+      switch(day){
+        case 1:
+          return <h1>Måndag</h1>
+        case 2:
+          return <h1>Tisdag</h1>
+        case 3:
+          return <h1>Onsdag</h1>
+        case 4:
+          return <h1>Torsdag</h1>
+        case 5:
+          return <h1>Fredag</h1>
+        case 6:
+          return <h1>Lördag</h1>
+        case 7:
+          return <h1>Söndag</h1>
+        break;
+      }
+    };
     
 
      // console.log( ntest )
@@ -141,22 +188,29 @@ export class DaySeries extends Component {
     // const test = parseInt(date.toISOString().slice(11, 13)) + 24;
 
 
-    
-    
+      return (
+        <div className="grid">
+          
+          <div onClick={this.openModal} className="firstDay">
+            <h1>hej</h1>
+          </div>
+          <div onClick={this.openSecondModal} className="secondDay">
+          </div>
 
-    return (
-      <div className="grid">
-        <div className="firstDay">
-          <DayOne newData={ value } />
+            <Modal  isOpen={this.state.secondModalIsOpen} onRequestClose={this.closeSecondModal} >
+            <button onClick={this.closeSecondModal}>close</button>
+              <h2>2</h2>
+              <DayTwo newData2={value2} />
+            </Modal>
+
+          <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
+            <button onClick={this.closeModal}>close</button>
+              <h2>1</h2>
+              <DayOne newData={ value } />
+            </Modal>
         </div>
-        <div className="secondDay">
-          <DayTwo newData2={value2} />
-        </div>
-        <div className="thirdDay">
-          <DayThree newData3={value3} />
-        </div>
-      </div>
-    );
+      );
+  
   }
 }
 
