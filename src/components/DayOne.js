@@ -3,9 +3,14 @@ import React, { Component } from 'react';
 class DayOne extends Component {
   render() {
 
-    const temp = this.props.newData.map((item) => item.parameters[1]);
+    const temp = this.props.newData.map((item) => item.parameters);
 
     const x = Math.round(temp.map((item) => item.values[0]));
+
+    console.log(temp);
+
+    // const ned = this.props.newData.map((item) => item.parameters[1]);
+
 
     // const ws = this.props.newData.map((item) => item.parameters[4]);
 

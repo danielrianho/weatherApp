@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DayNow from './components/DayNow';
 import DaySeries from './components/DaySeries';
 // import TimeSeries from './components/TimeSeries';
-import { GoogleComponent } from 'react-google-location'
+// import { GoogleComponent } from 'react-google-location'
 
 
 
@@ -41,15 +41,7 @@ class App extends Component {
 
     return (
       <div className="App">
-       <GoogleComponent
-         
-          apiKey={API_KEY}
-          language={'sv'}
-          country={'country:in|country:swe'}
-          coordinates={true}
-          // locationBoxStyle={'custom-style'}
-          // locationListStyle={'custom-style-list'}
-          onChange={(e) => { this.setState({ place: e }) }} />
+
         <div className="container">
           
 

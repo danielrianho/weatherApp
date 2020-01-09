@@ -3,31 +3,10 @@ import moment from 'moment-timezone';
 import DayOne from './DayOne';
 import DayTwo from './DayTwo';
 import DayThree from './DayThree';
-import Modal from 'react-modal';
 
 
 export class DaySeries extends Component {
 
-   state = {
-    modalIsOpen: false,
-    secondModalIsOpen: false
-  };
-
-  openModal = () => {
-    this.setState({ modalIsOpen: true });
-  };
-
-  closeModal = () => {
-    this.setState({ modalIsOpen: false });
-  };
-
-  openSecondModal = () => {
-    this.setState({ secondModalIsOpen: true });
-  };
-
-  closeSecondModal = () => {
-    this.setState({ secondModalIsOpen: false });
-  };
 
   render() {
 
@@ -190,24 +169,18 @@ export class DaySeries extends Component {
 
       return (
         <div className="grid">
-          
-          <div onClick={this.openModal} className="firstDay">
-            <h1>hej</h1>
-          </div>
-          <div onClick={this.openSecondModal} className="secondDay">
+          <div>
+            <DayOne newData={ value } />
           </div>
 
-            <Modal  isOpen={this.state.secondModalIsOpen} onRequestClose={this.closeSecondModal} >
-            <button onClick={this.closeSecondModal}>close</button>
-              <h2>2</h2>
-              <DayTwo newData2={value2} />
-            </Modal>
+          <div>
+            <DayTwo newData2={ value2 } />
+          </div>
 
-          <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
-            <button onClick={this.closeModal}>close</button>
-              <h2>1</h2>
-              <DayOne newData={ value } />
-            </Modal>
+          <div>
+            <DayThree newData3={ value3 } />
+          </div>
+
         </div>
       );
   
